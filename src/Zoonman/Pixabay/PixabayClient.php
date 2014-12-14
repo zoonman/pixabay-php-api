@@ -96,10 +96,8 @@ class PixabayClient {
      * @return mixed
      */
     public function get(array $options = [], $returnObject = false, $resetOptions = false) {
-
         $this->parseOptions($options, $resetOptions);
         $response = $this->client->get(null, ['query' => $this->options]);
-
         return $response->json(['object' => $returnObject]);
     }
 }
