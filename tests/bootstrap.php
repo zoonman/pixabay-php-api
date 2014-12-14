@@ -14,6 +14,4 @@
  * @link     http://marketmesuite.com/
  */
 
-
-require_once '../vendor/autoload.php';
-require_once '../src/Zoonman/Pixabay/PixabayClient.php';
+require_once dirname(dirname(__FILE__)).'/src/Zoonman/Pixabay/PixabayClient.php';
