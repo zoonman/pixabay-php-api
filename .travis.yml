@@ -2,3 +2,7 @@ language: php
 php:
   - 5.5
   - 5.4
+
+script_before:
+  pwd
+
