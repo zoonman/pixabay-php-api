@@ -1,8 +1,9 @@
 language: php
 php:
+  - 5.6
   - 5.5
   - 5.4
 
 before_script:
-  - pwd
+  - composer update
 
