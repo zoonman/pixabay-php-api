@@ -1,7 +1,7 @@
 {
   "name": "zoonman/pixabay-php-api",
   "type": "library",
-  "description": "Pixabay is a PHP HTTP client library to access Pixabay's API",
+  "description": "PixabayClient is a PHP HTTP client library to access Pixabay's API",
   "keywords": ["Pixabay", "http", "rest", "web service", "curl", "client", "HTTP client"],
   "homepage": "https://www.zoonman.com/projects/pixabay/",
   "license": "MIT",
