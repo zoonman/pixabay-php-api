@@ -51,7 +51,7 @@ class PixabayClient {
      */
     private $client;
     /**
-     *
+     * Root of Pixabay REST API
      */
     const API_ROOT = 'http://pixabay.com/api/';
 
@@ -72,6 +72,8 @@ class PixabayClient {
     }
 
     /**
+     * Parse Provided options
+     *
      * @param array $options
      * @param bool $resetOptions
      */
@@ -86,6 +88,8 @@ class PixabayClient {
     }
 
     /**
+     * Get Data from Pixabay API
+     *
      * @param array $options
      * @param bool $returnObject
      * @param bool $resetOptions
@@ -93,7 +97,7 @@ class PixabayClient {
      */
     public function get(array $options = [], $returnObject = false, $resetOptions = false) {
 
-        $this->parseOptions($options);
+        $this->parseOptions($options, $resetOptions);
         $response = $this->client->get(null, ['query' => $this->options]);
 
         return $response->json(['object' => $returnObject]);
