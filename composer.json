@@ -1,0 +1,24 @@
+{
+  "name": "zoonman/pixabay-php-api",
+  "type": "library",
+  "description": "Pixabay is a PHP HTTP client library to access Pixabay's API",
+  "keywords": ["Pixabay", "http", "rest", "web service", "curl", "client", "HTTP client"],
+  "homepage": "https://www.zoonman.com/projects/pixabay/",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Philipp Tkachev",
+      "email": "zoonman@gmail.com",
+      "homepage": "https://www.zoonman.com/"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "guzzlehttp/guzzle": "~5.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Zoonman\\": "src/"
+    }
+  }
+}
