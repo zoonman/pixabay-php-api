@@ -13,5 +13,6 @@
  * @version  GIT: 1.0
  * @link     http://marketmesuite.com/
  */
-
+ 
+require_once dirname(dirname(__FILE__)).'/vendor/autoload.php';
 require_once dirname(dirname(__FILE__)).'/src/Zoonman/Pixabay/PixabayClient.php';
