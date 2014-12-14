@@ -15,5 +15,5 @@
  */
 
 
-require_once 'vendor/autoload.php';
-require_once 'src/Zoonman/Pixabay/PixabayClient.php';
+require_once '../vendor/autoload.php';
+require_once '../src/Zoonman/Pixabay/PixabayClient.php';
