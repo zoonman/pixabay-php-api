@@ -1,5 +1,6 @@
 # Pixabay PHP Client
 [![Build Status](https://travis-ci.org/zoonman/pixabay-php-api.svg)](https://travis-ci.org/zoonman/pixabay-php-api)
+
 This is unofficial wrapper for [Pixabay RESTful API](http://pixabay.com/api/docs/) for searching and retrieving Pixabay public domain images. 
 
 [![Pixabay](http://pixabay.com/static/img/logo_640.png)](http://pixabay.com/)
