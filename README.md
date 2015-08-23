@@ -29,5 +29,35 @@ require 'vendor/autoload.php';
 
 ### Documentation
 
+Compatible with PHP verisons:
+ - 5.4
+ - 5.5
+ - 5.6
+ - 7
+ - hhvm
+ - nightly
+
+See current build status above.
+
+#### Usage example
+
+```
+<?php
+
+require_once 'vendor/autoload.php';
+
+$pixabayClient = new \Zoonman\Pixabay\PixabayClient([
+	'username' => 'yourPixabayUserName',
+	'key' => 'yourPixabayKey'
+]);
+
+// test it
+$results = $pixabayClient->get(['q' => 'nature'], true);
+// show the results
+var_dump($results);
+```
+To obtain your keys go to https://pixabay.com/api/docs/
+
 More information can be found in the online documentation at
 https://www.zoonman.com/projects/pixabay/
+
