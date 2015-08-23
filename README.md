@@ -41,7 +41,7 @@ See current build status above.
 
 #### Usage example
 
-```
+```php
 <?php
 
 require_once 'vendor/autoload.php';
