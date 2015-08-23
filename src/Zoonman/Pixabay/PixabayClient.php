@@ -77,7 +77,8 @@ class PixabayClient {
      * @param array $options
      * @param bool $resetOptions
      */
-    private function parseOptions(array $options, $resetOptions = false) {
+    private function parseOptions(array $options, $resetOptions = false) 
+    {
         foreach ($this->optionsList as $option) {
             if (isset($options[$option])) {
                 $this->options[$option] = $options[$option];
@@ -95,7 +96,8 @@ class PixabayClient {
      * @param bool $resetOptions
      * @return mixed
      */
-    public function get(array $options = [], $returnObject = false, $resetOptions = false) {
+    public function get(array $options = [], $returnObject = false, $resetOptions = false) 
+    {
         $this->parseOptions($options, $resetOptions);
         $response = $this->client->get(null, ['query' => $this->options]);
         return $response->json(['object' => $returnObject]);
