@@ -53,7 +53,7 @@ class PixabayClient {
     /**
      * Root of Pixabay REST API
      */
-    const API_ROOT = 'http://pixabay.com/api/';
+    const API_ROOT = 'https://pixabay.com/api/';
 
     /**
      * @param array $options
