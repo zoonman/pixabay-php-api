@@ -1,5 +1,5 @@
 # Pixabay PHP Client
-[![Build Status](https://travis-ci.org/zoonman/pixabay-php-api.svg)](https://travis-ci.org/zoonman/pixabay-php-api) [![Code Climate](https://codeclimate.com/github/zoonman/pixabay-php-api/badges/gpa.svg)](https://codeclimate.com/github/zoonman/pixabay-php-api)
+[![Build Status](https://travis-ci.org/zoonman/pixabay-php-api.svg)](https://travis-ci.org/zoonman/pixabay-php-api) [![Code Climate](https://codeclimate.com/github/zoonman/pixabay-php-api/badges/gpa.svg)](https://codeclimate.com/github/zoonman/pixabay-php-api) [![Packagist](https://img.shields.io/packagist/dt/zoonman/pixabay-php-api.svg)]() [![GitHub license](https://img.shields.io/github/license/zoonman/pixabay-php-api.svg)]()
 
 This is unofficial wrapper for [Pixabay RESTful API](http://pixabay.com/api/docs/) for searching and retrieving Pixabay public domain images. 
 
