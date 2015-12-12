@@ -14,19 +14,31 @@
  * @link     https://www.zoonman.com/projects/pixabay/
  */
  
+namespace Pixabay;
 
-namespace Zoonman\Pixabay;
-
-
+/**
+ * Class PixabayClientTest
+ *
+ * @package Pixabay
+ */
 class PixabayClientTest extends \PHPUnit_Framework_TestCase {
 
+  /**
+   * @var \Pixabay\PixabayClient
+   */
     protected $object;
 
+  /**
+   * Setup tests
+   */
     public function setup()
     {
-        $this->object = new PixabayClient(['username' => 'test', 'key' => 'test']);
+        $this->object = new PixabayClient(['key' => 'test']);
     }
 
+  /**
+   * Run tests
+   */
     public function testGet()
     {
         $this->setExpectedException('GuzzleHttp\Exception\ClientException');

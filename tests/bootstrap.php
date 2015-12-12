@@ -7,7 +7,7 @@
  *
  * @category Production
  * @package  Default
- * @author   Philipp Tkachev <philipp@marketmesuite.com>
+ * @author   Philipp Tkachev <zoonman@gmail.com>
  * @date     12/14/14 4:07 PM
  * @license  http://marketmesuite.com/license.txt MMS License
  * @version  GIT: 1.0
@@ -15,4 +15,4 @@
  */
  
 require_once dirname(dirname(__FILE__)).'/vendor/autoload.php';
-require_once dirname(dirname(__FILE__)).'/src/Zoonman/Pixabay/PixabayClient.php';
+require_once dirname(dirname(__FILE__)).'/src/Pixabay/PixabayClient.php';

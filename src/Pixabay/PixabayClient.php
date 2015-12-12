@@ -13,58 +13,64 @@
  * @version  GIT: 1.0
  * @link     https://www.zoonman.com/projects/pixabay/
  */
- 
 
-namespace Zoonman\Pixabay;
+namespace Pixabay;
 
 use GuzzleHttp\Client;
 
 /**
  * Class PixabayClient
- * @package Zoonman\PixabayClient
+ * @package Pixabay\PixabayClient
  */
 class PixabayClient {
+
     /**
      * @var array
      */
     private $options =[];
+
     /**
      * @var array
      */
     private $optionsList = [
-        'username',
         'key',
         'response_group',
         'id',
         'q',
         'lang',
+        'callback',
         'image_type',
         'orientation',
+        'category',
         'min_width',
         'min_height',
         'editors_choice',
         'safesearch',
+        'page',
+        'per_page',
+        'pretty',
         'order'
     ];
+
     /**
      * @var Client
      */
     private $client;
+
     /**
      * Root of Pixabay REST API
      */
     const API_ROOT = 'https://pixabay.com/api/';
 
     /**
+     * Class constructor
+     *
      * @param array $options
      * @throws \Exception
      */
     public function __construct(array $options)
     {
         $this->client = new Client(['base_url' => self::API_ROOT]);
-        if (empty($options['username'])) {
-            throw new \Exception('You must specify "username" parameter in constructor options');
-        }
         if (empty($options['key'])) {
             throw new \Exception('You must specify "key" parameter in constructor options');
         }

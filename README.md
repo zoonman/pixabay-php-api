@@ -3,7 +3,7 @@
 
 This is unofficial wrapper for [Pixabay RESTful API](http://pixabay.com/api/docs/) for searching and retrieving Pixabay public domain images. 
 
-[![Pixabay](http://pixabay.com/static/img/logo_640.png)](http://pixabay.com/)
+[![Pixabay](https://pixabay.com/static/img/logo.svg)](http://pixabay.com/)
 
 ### Installing via Composer
 
@@ -46,8 +46,7 @@ See current build status above.
 
 require_once 'vendor/autoload.php';
 
-$pixabayClient = new \Zoonman\Pixabay\PixabayClient([
-	'username' => 'yourPixabayUserName',
+$pixabayClient = new \Pixabay\PixabayClient([
 	'key' => 'yourPixabayKey'
 ]);
 
