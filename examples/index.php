@@ -29,4 +29,4 @@ $pixabayClient = new \Pixabay\PixabayClient(array(
 $results = $pixabayClient->get(['q' => 'nature'], true);
 
 // show the results
-var_dump($results);
+echo json_encode($results);
