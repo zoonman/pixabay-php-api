@@ -105,7 +105,8 @@ class PixabayClient {
     public function get(array $options = [], $returnObject = false, $resetOptions = false) 
     {
         $this->parseOptions($options, $resetOptions);
-        $response = $this->client->get(null, ['query' => $this->options]);
-        return $response->json(['object' => $returnObject]);
+        $response = $this->client->request('GET', self::API_ROOT, ['query' => $this->options]);
+        $data = $response->getBody()->getContents();
+        return json_decode($data, $returnObject);
     }
 }
