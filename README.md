@@ -30,7 +30,6 @@ require 'vendor/autoload.php';
 ### Documentation
 
 Compatible with PHP verisons:
- - 5.4
  - 5.5
  - 5.6
  - 7
