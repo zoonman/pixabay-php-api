@@ -39,9 +39,18 @@ class PixabayClientTest extends \PHPUnit_Framework_TestCase {
   /**
    * Run tests
    */
-    public function testGet()
+    public function testGetImages()
     {
         $this->setExpectedException('GuzzleHttp\Exception\ClientException');
-        $this->assertInternalType('array', $this->object->get(['q' => 'test']));
+        $this->assertInternalType('array', $this->object->getImages(['q' => 'test']));
+    }
+
+    /**
+   * Run tests
+   */
+    public function testGetVideos()
+    {
+        $this->setExpectedException('GuzzleHttp\Exception\ClientException');
+        $this->assertInternalType('array', $this->object->getVideos(['q' => 'test']));
     }
 }
