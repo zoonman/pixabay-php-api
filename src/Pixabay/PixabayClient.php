@@ -109,7 +109,7 @@ class PixabayClient {
 
         $response = $this->getData($options);
 
-        $return $this->getResponse($response, $returnObject);
+        return $this->getResponse($response, $returnObject);
     }
 
     /**
@@ -127,7 +127,7 @@ class PixabayClient {
 
         $response = $this->getData($options, 'videos/');
 
-        $return $this->getResponse($response, $returnObject);
+        return $this->getResponse($response, $returnObject);
     }
 
     protected function getData(array $options = [], $segment = '') 
