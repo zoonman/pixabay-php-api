@@ -107,7 +107,7 @@ class PixabayClient {
     {
         $this->parseOptions($options, $resetOptions);
 
-        $response = $this->getData($options);
+        $response = $this->getData();
 
         return $this->getResponse($response, $returnObject);
     }
@@ -125,12 +125,12 @@ class PixabayClient {
     {
         $this->parseOptions($options, $resetOptions);
 
-        $response = $this->getData($options, 'videos/');
+        $response = $this->getData('videos/');
 
         return $this->getResponse($response, $returnObject);
     }
 
-    protected function getData(array $options = [], $segment = '') 
+    protected function getData($segment = '') 
     {
         return $this->client->request('GET', self::API_ROOT.$segment, ['query' => $this->options]);
     }
