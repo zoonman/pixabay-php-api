@@ -95,18 +95,50 @@ class PixabayClient {
     }
 
     /**
-     * Get Data from Pixabay API
+     * Get Images from Pixabay API
      *
      * @param array $options
-     * @param bool $returnObject
-     * @param bool $resetOptions
+     * @param bool  $returnObject
+     * @param bool  $resetOptions
+     *
      * @return mixed
      */
-    public function get(array $options = [], $returnObject = false, $resetOptions = false) 
+    public function getImages(array $options = [], $returnObject = false, $resetOptions = false)
     {
         $this->parseOptions($options, $resetOptions);
-        $response = $this->client->request('GET', self::API_ROOT, ['query' => $this->options]);
+
+        $response = $this->getData();
+
+        return $this->getResponse($response, $returnObject);
+    }
+
+    /**
+     * Get Videos from Pixabay API
+     *
+     * @param array $options
+     * @param bool  $returnObject
+     * @param bool  $resetOptions
+     *
+     * @return mixed
+     */
+    public function getVideos(array $options = [], $returnObject = false, $resetOptions = false)
+    {
+        $this->parseOptions($options, $resetOptions);
+
+        $response = $this->getData('videos/');
+
+        return $this->getResponse($response, $returnObject);
+    }
+
+    protected function getData($segment = '') 
+    {
+        return $this->client->request('GET', self::API_ROOT.$segment, ['query' => $this->options]);
+    }
+
+    protected function getResponse($response, $returnObject)
+    {
         $data = $response->getBody()->getContents();
+
         return json_decode($data, $returnObject);
     }
 }
