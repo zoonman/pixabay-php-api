@@ -23,11 +23,10 @@ use GuzzleHttp\Client;
  * @package Pixabay\PixabayClient
  */
 class PixabayClient {
-
     /**
      * @var array
      */
-    private $options =[];
+    private $options = [];
 
     /**
      * @var array
@@ -49,7 +48,9 @@ class PixabayClient {
         'page',
         'per_page',
         'pretty',
-        'order'
+        'response_group',
+        'order',
+        'video_type'
     ];
 
     /**
@@ -61,6 +62,8 @@ class PixabayClient {
      * Root of Pixabay REST API
      */
     const API_ROOT = 'https://pixabay.com/api/';
+    const SEGMENT_IMAGES = '';
+    const SEGMENT_VIDEOS = 'videos/';
 
     /**
      * Class constructor
@@ -94,6 +97,24 @@ class PixabayClient {
         }
     }
 
+
+    /**
+     * Get Data from Pixabay API
+     *
+     * @param array  $options
+     * @param bool   $returnObject
+     * @param bool   $resetOptions
+     * @param string $segment
+     * @return mixed
+     */
+    public function get(array $options = [], $returnObject = false, $resetOptions = false, $segment = self::SEGMENT_IMAGES)
+    {
+        $this->parseOptions($options, $resetOptions);
+        $response = $this->client->request('GET', self::API_ROOT . $segment, ['query' => $this->options]);
+        $data = $response->getBody()->getContents();
+        return json_decode($data, $returnObject);
+    }
+
     /**
      * Get Images from Pixabay API
      *
@@ -105,11 +126,7 @@ class PixabayClient {
      */
     public function getImages(array $options = [], $returnObject = false, $resetOptions = false)
     {
-        $this->parseOptions($options, $resetOptions);
-
-        $response = $this->getData();
-
-        return $this->getResponse($response, $returnObject);
+        return $this->get($options, $returnObject, $resetOptions, self::SEGMENT_IMAGES);
     }
 
     /**
@@ -123,22 +140,6 @@ class PixabayClient {
      */
     public function getVideos(array $options = [], $returnObject = false, $resetOptions = false)
     {
-        $this->parseOptions($options, $resetOptions);
-
-        $response = $this->getData('videos/');
-
-        return $this->getResponse($response, $returnObject);
-    }
-
-    protected function getData($segment = '') 
-    {
-        return $this->client->request('GET', self::API_ROOT.$segment, ['query' => $this->options]);
-    }
-
-    protected function getResponse($response, $returnObject)
-    {
-        $data = $response->getBody()->getContents();
-
-        return json_decode($data, $returnObject);
+        return $this->get($options, $returnObject, $resetOptions, self::SEGMENT_VIDEOS);
     }
 }
