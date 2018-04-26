@@ -3,9 +3,15 @@ dist: trusty
 php:
   - 5.6
   - 5.5
-  - 7
+  - 7.0
+  - 7.1
+  - 7.2
   - hhvm
+  - nightly
+
+matrix:
+  allow_failures:
+    - php: nightly
 
 before_script:
-  - composer update
-
+  - composer install -n
