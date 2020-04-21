@@ -45,6 +45,7 @@ class PixabayClient {
         'min_height',
         'editors_choice',
         'safesearch',
+        'colors',
         'page',
         'per_page',
         'pretty',
