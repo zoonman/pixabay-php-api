@@ -31,6 +31,6 @@
     }
   },
   "scripts": {
-    "test": "vendor/bin/phpunit --colors=always --verbose --bootstrap tests/bootstrap.php --configuration phpunit.xml.dist tests/"
+    "test": "vendor/bin/phpunit --bootstrap tests/bootstrap.php --configuration phpunit.xml.dist tests/"
   }
 }
