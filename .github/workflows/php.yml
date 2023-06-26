@@ -37,3 +37,5 @@ jobs:
 
     - name: Run test suite
       run: composer run-script test
+      env:
+        PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
