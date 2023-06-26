@@ -16,6 +16,7 @@
  
 namespace Pixabay\Tests;
 
+use GuzzleHttp\Exception\ClientException;
 use Pixabay\PixabayClient;
 use PHPUnit\Framework\TestCase;
 
@@ -58,7 +59,7 @@ class PixabayClientTest extends TestCase {
    */
     public function testGetImages()
     {
-        $this->expectException(\GuzzleHttp\Exception\ClientException::class);
+        $this->expectException(ClientException::class);
         $this->assertIsArray($this->object->getImages(['q' => 'test']));
     }
 
@@ -68,7 +69,7 @@ class PixabayClientTest extends TestCase {
    */
     public function testGetVideos()
     {
-        $this->expectException(\GuzzleHttp\Exception\ClientException::class);
+        $this->expectException(ClientException::class);
         $this->assertIsArray($this->object->getVideos(['q' => 'test']));
     }
 }
