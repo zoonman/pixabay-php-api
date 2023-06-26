@@ -31,10 +31,11 @@ class PixabayClientTest extends TestCase {
    */
     protected $object;
 
-  /**
-   * Setup tests
-   */
-    public function setup()
+    /**
+     * Setup tests
+     * @throws \Exception
+     */
+    public function setUp()
     {
         $this->object = new PixabayClient(['key' => 'test']);
     }
