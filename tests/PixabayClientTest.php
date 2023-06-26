@@ -35,7 +35,7 @@ class PixabayClientTest extends TestCase {
      * Setup tests
      * @throws \Exception
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->object = new PixabayClient(['key' => 'test']);
     }
