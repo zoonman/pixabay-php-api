@@ -8,7 +8,7 @@
   "authors": [
     {
       "name": "Philipp Tkachev",
-      "email": "zoonman@gmail.com",
+      "email": "philipp@zoonman.com",
       "homepage": "https://www.zoonman.com/"
     }
   ],
@@ -17,11 +17,16 @@
     "guzzlehttp/guzzle": "^6.2|^7.4.5"
   },
   "require-dev": {
-    "phpunit/phpunit": "4.3.*"
+    "phpunit/phpunit": "^4.8|^5.5|^6.5"
   },
   "autoload": {
     "psr-4": {
       "Pixabay\\": "src/Pixabay/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Pixabay\\Tests\\": "tests/"
     }
   }
 }
