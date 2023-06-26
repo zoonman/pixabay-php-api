@@ -41,18 +41,29 @@ See current build status above.
 
 ```php
 <?php
-
+// wire the Composer Autoloader
 require_once 'vendor/autoload.php';
 
+// instantiate the API Client
+// sign up for Pixabay service to get the correct API key
 $pixabayClient = new \Pixabay\PixabayClient([
 	'key' => 'yourPixabayKey'
 ]);
 
-// test it
+// run simplest possible query against the API
 $results = $pixabayClient->get(['q' => 'nature'], true);
 // show the results
 var_dump($results);
+
+// to get images use
+$results = $object->getImages(['q' => 'flowers', 'per_page' => 3], true);
+var_dump($results);
+
+// to get videos use
+$results = $object->getVideos(['q' => 'smile', 'per_page' => 3], true);
+var_dump($results);
 ```
+
 To obtain your keys go to https://pixabay.com/api/docs/
 
 More information can be found in the online documentation at
