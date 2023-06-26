@@ -105,47 +105,47 @@ class PixabayClient {
      * Get Data from Pixabay API
      *
      * @param array $options
-     * @param bool $returnObject
+     * @param bool $returnAssociativeArray
      * @param bool $resetOptions
      * @param string $segment
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function get(array $options = [], bool $returnObject = false, bool $resetOptions = false, string $segment = self::SEGMENT_IMAGES)
+    public function get(array $options = [], bool $returnAssociativeArray = false, bool $resetOptions = false, string $segment = self::SEGMENT_IMAGES)
     {
         $this->parseOptions($options, $resetOptions);
         $response = $this->client->request('GET', self::API_ROOT . $segment, ['query' => $this->options]);
         $data = $response->getBody()->getContents();
-        return json_decode($data, $returnObject);
+        return json_decode($data, $returnAssociativeArray);
     }
 
     /**
      * Get Images from Pixabay API
      *
      * @param array $options
-     * @param bool $returnObject
+     * @param bool $returnAssociativeArray
      * @param bool $resetOptions
      *
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getImages(array $options = [], bool $returnObject = false, bool $resetOptions = false)
+    public function getImages(array $options = [], bool $returnAssociativeArray = false, bool $resetOptions = false)
     {
-        return $this->get($options, $returnObject, $resetOptions, self::SEGMENT_IMAGES);
+        return $this->get($options, $returnAssociativeArray, $resetOptions, self::SEGMENT_IMAGES);
     }
 
     /**
      * Get Videos from Pixabay API
      *
      * @param array $options
-     * @param bool $returnObject
+     * @param bool $returnAssociativeArray
      * @param bool $resetOptions
      *
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getVideos(array $options = [], bool $returnObject = false, bool $resetOptions = false)
+    public function getVideos(array $options = [], bool $returnAssociativeArray = false, bool $resetOptions = false)
     {
-        return $this->get($options, $returnObject, $resetOptions, self::SEGMENT_VIDEOS);
+        return $this->get($options, $returnAssociativeArray, $resetOptions, self::SEGMENT_VIDEOS);
     }
 }

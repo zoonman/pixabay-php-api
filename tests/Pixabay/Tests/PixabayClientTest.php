@@ -61,9 +61,9 @@ class PixabayClientTest extends TestCase {
     {
         $this->expectException(ClientException::class);
         $this->object = new PixabayClient(['key' => getenv('PIXABAY_API_KEY')]);
-        $result = $this->object->getImages(['q' => 'test']);
-        $this->assertIsArray($result);
-        print_r($result);
+        $results = $this->object->getImages(['q' => 'test'], true);
+        $this->assertIsArray($results);
+        var_dump($results);
     }
 
   /**
@@ -74,6 +74,6 @@ class PixabayClientTest extends TestCase {
     {
         $this->expectException(ClientException::class);
         $this->object = new PixabayClient(['key' => getenv('PIXABAY_API_KEY')]);
-        $this->assertIsArray($this->object->getVideos(['q' => 'test']));
+        $this->assertIsArray($this->object->getVideos(['q' => 'test'], true));
     }
 }
