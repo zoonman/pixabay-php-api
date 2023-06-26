@@ -30,9 +30,8 @@ require 'vendor/autoload.php';
 ### Documentation
 
 Compatible with PHP verisons:
- - 5.5
- - 5.6
- - 7
+ - 7.2+
+ - 8
  - hhvm
  - nightly
 
