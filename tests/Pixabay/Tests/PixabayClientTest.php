@@ -13,7 +13,7 @@
  * @version  GIT: 1.0
  * @link     https://www.zoonman.com/projects/pixabay/
  */
- 
+
 namespace Pixabay\Tests;
 
 use GuzzleHttp\Exception\ClientException;
@@ -25,55 +25,51 @@ use PHPUnit\Framework\TestCase;
  *
  * @package Pixabay
  */
-class PixabayClientTest extends TestCase {
+class PixabayClientTest extends TestCase
+{
 
-  /**
-   * @var \Pixabay\PixabayClient
-   */
-    protected $object;
 
     /**
-     * Setup tests
-     * @throws \Exception
+     * Run constructor tests
+     *
      */
-    public function setUp(): void
-    {
-        $this->object = new PixabayClient(['key' => 'test']);
-    }
-
-  /**
-    * Run tests
-    *
-   *
-   */
     public function testConstructorOnNoKeyParameter()
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage("You must specify \"key\" parameter in constructor options");
-        $this->object = new PixabayClient([]);
+        new PixabayClient([]);
     }
 
-  /**
-   * Run tests
-   *
-   */
-    public function testGetImages()
+    /**
+     * Assert that API will throw when invalid key supplied
+     *
+     */
+    public function testFakeKey()
     {
         $this->expectException(ClientException::class);
-        $this->object = new PixabayClient(['key' => getenv('PIXABAY_API_KEY')]);
-        $results = $this->object->getImages(['q' => 'test'], true);
+        $object = new PixabayClient(['key' => 'FAKE_KEY']);
+        $object->getImages(['q' => 'test', 'per_page' => 3], true);
+    }
+
+    /**
+     * Run getImages tests
+     *
+     */
+    public function testGetImages()
+    {
+        $object = new PixabayClient(['key' => getenv('PIXABAY_API_KEY')]);
+        $results = $object->getImages(['q' => 'test', 'per_page' => 3], true);
         $this->assertIsArray($results);
         var_dump($results);
     }
 
-  /**
-   * Run tests
-   *
-   */
+    /**
+     * Run tests
+     *
+     */
     public function testGetVideos()
     {
-        $this->expectException(ClientException::class);
-        $this->object = new PixabayClient(['key' => getenv('PIXABAY_API_KEY')]);
-        $this->assertIsArray($this->object->getVideos(['q' => 'test'], true));
+        $object = new PixabayClient(['key' => getenv('PIXABAY_API_KEY')]);
+        $this->assertIsObject($object->getVideos(['q' => 'test', 'per_page' => 3], false));
     }
 }
