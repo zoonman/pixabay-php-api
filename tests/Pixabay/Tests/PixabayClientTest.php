@@ -42,29 +42,33 @@ class PixabayClientTest extends TestCase {
 
   /**
     * Run tests
-    * @expectedException \Exception
-    * @expectedExceptionMessage You must specify "key" parameter in constructor options
-    */
+    *
+   *
+   */
     public function testConstructorOnNoKeyParameter()
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage("You must specify \"key\" parameter in constructor options");
         $this->object = new PixabayClient([]);
     }
 
   /**
    * Run tests
-   * @expectedException GuzzleHttp\Exception\ClientException
+   *
    */
     public function testGetImages()
     {
-        $this->assertInternalType('array', $this->object->getImages(['q' => 'test']));
+        $this->expectException(\GuzzleHttp\Exception\ClientException::class);
+        $this->assertIsArray($this->object->getImages(['q' => 'test']));
     }
 
   /**
    * Run tests
-   * @expectedException GuzzleHttp\Exception\ClientException 
+   *
    */
     public function testGetVideos()
     {
-        $this->assertInternalType('array', $this->object->getVideos(['q' => 'test']));
+        $this->expectException(\GuzzleHttp\Exception\ClientException::class);
+        $this->assertIsArray($this->object->getVideos(['q' => 'test']));
     }
 }
