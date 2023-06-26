@@ -29,6 +29,8 @@ class PixabayClient {
     private $options = [];
 
     /**
+     * Please consult for parameters on the documentation page https://pixabay.com/api/docs/
+     *
      * @var array
      */
     private $optionsList = [
@@ -43,6 +45,7 @@ class PixabayClient {
         'category',
         'min_width',
         'min_height',
+        'colors',
         'editors_choice',
         'safesearch',
         'page',
@@ -86,7 +89,7 @@ class PixabayClient {
      * @param array $options
      * @param bool $resetOptions
      */
-    private function parseOptions(array $options, $resetOptions = false) 
+    private function parseOptions(array $options, bool $resetOptions = false)
     {
         foreach ($this->optionsList as $option) {
             if (isset($options[$option])) {
@@ -101,13 +104,14 @@ class PixabayClient {
     /**
      * Get Data from Pixabay API
      *
-     * @param array  $options
-     * @param bool   $returnObject
-     * @param bool   $resetOptions
+     * @param array $options
+     * @param bool $returnObject
+     * @param bool $resetOptions
      * @param string $segment
      * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function get(array $options = [], $returnObject = false, $resetOptions = false, $segment = self::SEGMENT_IMAGES)
+    public function get(array $options = [], bool $returnObject = false, bool $resetOptions = false, string $segment = self::SEGMENT_IMAGES)
     {
         $this->parseOptions($options, $resetOptions);
         $response = $this->client->request('GET', self::API_ROOT . $segment, ['query' => $this->options]);
@@ -119,12 +123,13 @@ class PixabayClient {
      * Get Images from Pixabay API
      *
      * @param array $options
-     * @param bool  $returnObject
-     * @param bool  $resetOptions
+     * @param bool $returnObject
+     * @param bool $resetOptions
      *
      * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getImages(array $options = [], $returnObject = false, $resetOptions = false)
+    public function getImages(array $options = [], bool $returnObject = false, bool $resetOptions = false)
     {
         return $this->get($options, $returnObject, $resetOptions, self::SEGMENT_IMAGES);
     }
@@ -133,12 +138,13 @@ class PixabayClient {
      * Get Videos from Pixabay API
      *
      * @param array $options
-     * @param bool  $returnObject
-     * @param bool  $resetOptions
+     * @param bool $returnObject
+     * @param bool $resetOptions
      *
      * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getVideos(array $options = [], $returnObject = false, $resetOptions = false)
+    public function getVideos(array $options = [], bool $returnObject = false, bool $resetOptions = false)
     {
         return $this->get($options, $returnObject, $resetOptions, self::SEGMENT_VIDEOS);
     }
