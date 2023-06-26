@@ -29,5 +29,8 @@
     "psr-4": {
       "Pixabay\\Tests\\": "tests/"
     }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit --colors=always --verbose --bootstrap tests/bootstrap.php --configuration phpunit.xml.dist tests/"
   }
 }
